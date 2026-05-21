@@ -8,7 +8,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -88,7 +87,6 @@ class OthelloControllerTest {
   // Cas nominaux : pose légale + retournement (1 pion)
   // ===================================================================
 
-  @Disabled("Retire cette annotation pour activer le test")
   @Test
   @Order(1)
   void poser_un_pion_noir_legal_au_demarrage_met_a_jour_le_modele_et_la_barre_de_statut(
@@ -110,7 +108,6 @@ class OthelloControllerTest {
     assertThat(labelFin(robot).getText()).as("partie en cours").isEmpty();
   }
 
-  @Disabled("Retire cette annotation pour activer le test")
   @Test
   @Order(2)
   void poser_un_pion_blanc_legal_apres_un_coup_noir_met_a_jour_le_modele_et_la_barre_de_statut(
@@ -133,7 +130,6 @@ class OthelloControllerTest {
     assertThat(labelFin(robot).getText()).as("partie en cours").isEmpty();
   }
 
-  @Disabled("Retire cette annotation pour activer le test")
   @Test
   @Order(3)
   void un_coup_qui_capture_un_seul_pion_met_a_jour_le_modele_et_les_scores(FxRobot robot) {
@@ -159,7 +155,6 @@ class OthelloControllerTest {
   // Retournements par direction
   // ===================================================================
 
-  @Disabled("Retire cette annotation pour activer le test")
   @Test
   @Order(4)
   void un_coup_qui_capture_verticalement_retourne_le_pion_et_met_a_jour_les_scores(FxRobot robot) {
@@ -181,7 +176,6 @@ class OthelloControllerTest {
     assertThat(labelScoreBlanc(robot).getText()).as("score blanc = 0").contains("0");
   }
 
-  @Disabled("Retire cette annotation pour activer le test")
   @Test
   @Order(5)
   void un_coup_qui_capture_horizontalement_retourne_le_pion_et_met_a_jour_les_scores(
@@ -204,7 +198,6 @@ class OthelloControllerTest {
     assertThat(labelScoreBlanc(robot).getText()).as("score blanc = 0").contains("0");
   }
 
-  @Disabled("Retire cette annotation pour activer le test")
   @Test
   @Order(6)
   void un_coup_qui_capture_en_diagonale_retourne_les_pions_et_met_a_jour_les_scores(FxRobot robot) {
@@ -227,7 +220,6 @@ class OthelloControllerTest {
     assertThat(labelScoreBlanc(robot).getText()).as("score blanc = 0").contains("0");
   }
 
-  @Disabled("Retire cette annotation pour activer le test")
   @Test
   @Order(7)
   void un_coup_qui_capture_dans_deux_directions_met_a_jour_le_modele_et_les_scores(FxRobot robot) {
@@ -258,7 +250,6 @@ class OthelloControllerTest {
   // Tours sautés (un joueur ne peut pas jouer)
   // ===================================================================
 
-  @Disabled("Retire cette annotation pour activer le test")
   @Test
   @Order(8)
   void quand_le_joueur_noir_ne_peut_pas_jouer_la_main_revient_au_joueur_blanc(FxRobot robot) {
@@ -291,7 +282,6 @@ class OthelloControllerTest {
     assertThat(labelScoreBlanc(robot).getText()).contains("3");
   }
 
-  @Disabled("Retire cette annotation pour activer le test")
   @Test
   @Order(9)
   void quand_le_joueur_blanc_ne_peut_pas_jouer_la_main_revient_au_joueur_noir(FxRobot robot) {
@@ -323,7 +313,6 @@ class OthelloControllerTest {
   // Fin de partie
   // ===================================================================
 
-  @Disabled("Retire cette annotation pour activer le test")
   @Test
   @Order(10)
   void quand_le_joueur_blanc_gagne_la_partie_le_message_de_fin_affiche_la_victoire_du_blanc(
@@ -357,7 +346,6 @@ class OthelloControllerTest {
         .contains("Blanc");
   }
 
-  @Disabled("Retire cette annotation pour activer le test")
   @Test
   @Order(11)
   void quand_le_joueur_noir_perd_la_partie_le_message_de_fin_n_annonce_pas_sa_victoire(
@@ -389,7 +377,6 @@ class OthelloControllerTest {
   // Réinitialisation
   // ===================================================================
 
-  @Disabled("Retire cette annotation pour activer le test")
   @Test
   @Order(12)
   void cliquer_sur_nouvelle_partie_reinitialise_le_plateau_les_scores_et_la_barre_de_statut(
