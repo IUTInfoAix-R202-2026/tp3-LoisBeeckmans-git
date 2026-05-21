@@ -21,10 +21,26 @@ public class ThemeToggleController {
 
   @FXML
   private void initialize() {
-    // TODO bonus 8 : à chaque changement de sélection du ToggleButton, remplacer la feuille
-    // CSS active sur la Scene par theme-clair.css (non sélectionné) ou theme-sombre.css
-    // (sélectionné). On localise les URL via getClass().getResource("nom.css").toExternalForm().
-    // Astuce : utiliser scene.getStylesheets().setAll(url) pour remplacer toutes les feuilles
-    // en une seule opération.
+    racine
+        .sceneProperty()
+        .addListener(
+            (obs, oldScene, newScene) -> {
+              if (newScene != null) {
+                updateTheme(boutonTheme.isSelected());
+              }
+            });
+
+    boutonTheme
+        .selectedProperty()
+        .addListener((obs, oldSelected, selected) -> updateTheme(selected));
+  }
+
+  private void updateTheme(boolean sombre) {
+    String css = sombre ? CSS_SOMBRE : CSS_CLAIR;
+    String url = getClass().getResource(css).toExternalForm();
+    if (racine.getScene() != null) {
+      racine.getScene().getStylesheets().setAll(url);
+    }
+    boutonTheme.setText(sombre ? "☀️ Mode clair" : "🌙 Mode sombre");
   }
 }
